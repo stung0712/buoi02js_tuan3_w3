@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Methods</title>
+  </head>
+  <body>
+    <h1>The JavaScript <i>this</i> Keyword</h1>
+    <p>In this example, <b>this</b> refers to the <b>person</b> object.</p>
+    <p>Because <b>fullName</b> is a method of the person object.</p>
+
+    <p id="demo"></p>
+
+    <script>
+      const person = {
+        firstName: "John",
+        lastName: "Doe",
+        id: 5566,
+        fullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      };
+      document.getElementById("demo").innerHTML = person.fullName();
+      person.name = function () {
+        return this.firstName + " " + this.lastName;
+      };
+      document.getElementById("demo").innerHTML =
+        "My father is " + person.name();
+
+      // Trong JavaScript, từ khóa "this" tham chiếu đến một đối tượng.
+
+      // Đối tượng mà "this" tham chiếu đến phụ thuộc vào cách mà "this" được gọi (sử dụng hoặc gọi).
+      //   Từ khóa "this" tham chiếu đến các đối tượng khác nhau của Object dựa trên cách sử dụng của nó
+      //   Trong một phương thức của đối tượng, "this" tham chiếu đến đối tượng đó.
+      //   Khi "this" đứng một mình, nó tham chiếu đến đối tượng toàn cục.
+      //   Trong một hàm, "this" tham chiếu đến đối tượng toàn cục.
+      //   Trong một hàm ở chế độ nghiêm ngặt (strict mode), "this" sẽ là giá trị không xác định (undefined).
+      //   Trong một sự kiện, "this" tham chiếu đến phần tử đã nhận sự kiện.
+      //   Các phương thức như call(), apply(), và bind() có thể thiết lập "this" tham chiếu đến bất kỳ đối tượng nào.
+    </script>
+  </body>
+</html>

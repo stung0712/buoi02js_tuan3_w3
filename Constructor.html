@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Constructor</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      //  hàm constructor cho đối tượng Person
+      function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+      }
+
+      // thêm 2 đối tượng Person
+      const myFather = new Person("John", "Doe", 50, "blue");
+      const myMother = new Person("Sally", "Rally", 48, "green");
+
+      //thêm Property
+      myFather.nationality = "English";
+
+      //thêm Method
+      myFather.name = function () {
+        return this.firstName + " " + this.lastName;
+      };
+
+      // Display age
+      document.getElementById("demo").innerHTML =
+        "My father is " +
+        myFather.firstName +
+        ". My mother is " +
+        myMother.firstName +
+        ".";
+    </script>
+  </body>
+</html>

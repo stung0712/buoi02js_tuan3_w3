@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properties</title>
+  </head>
+  <body>
+    <!-- Các thuộc tính là các giá trị được liên kết với một đối tượng JavaScript.
+         Một đối tượng JavaScript là một tập hợp các thuộc tính không có thứ tự.
+         Thường thì các thuộc tính có thể được thay đổi, thêm mới và xóa bỏ, nhưng
+    một số thuộc tính chỉ có thể đọc mà không thể thay đổi. -->
+    <h2>JavaScript Object Properties</h2>
+    <p>Access a property with .property:</p>
+
+    <p id="demo"></p>
+    <script>
+      const person = {
+        firstname: "John",
+        lastname: "Doe",
+        age: 50,
+        eyecolor: "blue",
+      };
+
+      document.getElementById("demo").innerHTML =
+        person.firstname + " is " + person.age + " years old.";
+
+      document.getElementById("demo").innerHTML =
+        person["firstname"] + " is " + person["age"] + " years old.";
+
+      // sử dụng vòng lặp
+      let txt = "";
+      for (let x in person) {
+        txt += person[x] + " ";
+      }
+      document.getElementById("demo").innerHTML = txt;
+
+      // thêm 1 thuộc tính mới
+      person.nationality = "English";
+      document.getElementById("demo").innerHTML =
+        person.firstname + " is " + person.nationality;
+
+      // xóa 1 thuộc tính
+      delete person.age;
+      document.getElementById("demo").innerHTML =
+        person.firstname + " is " + person.age + " years old.";
+
+      // Object lồng nhau
+      const myObj = {
+        name: "John",
+        age: 30,
+        cars: {
+          car1: "Ford",
+          car2: "BMW",
+          car3: "Fiat",
+        },
+      };
+      document.getElementById("demo").innerHTML = myObj.cars.car2;
+      document.getElementById("demo").innerHTML = myObj.cars["car2"];
+      let p1 = "Car1";
+      let p2 = "Car2";
+      document.getElementById("demo").innerHTML = myObj[p1][p2];
+
+      // Mảng và Object lồng nhau
+      let x = "";
+      const my_obj = {
+        name: "John",
+        age: 30,
+        cars: [
+          { name: "Ford", models: ["Fiesta", "Focus", "Mustang"] },
+          { name: "BMW", models: ["320", "X3", "X5"] },
+          { name: "Fiat", models: ["500", "Panda"] },
+        ],
+      };
+      for (let i in my_obj.car) {
+        x += "<h2>" + my_obj.car[i].name + "</h2>";
+        for (let j in my_obj.cars[i].models) {
+          x += my_obj.car[i].models[j] + "<br>";
+        }
+      }
+      document.getElementById("demo").innerHTML = x;
+    </script>
+  </body>
+</html>
